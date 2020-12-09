@@ -4,14 +4,15 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
-
-
+// use render for 'views', sendFile for 'html' 
+// sendFile for 'html' needs full dir e.g res.sendFile(__dirname, PATH)
+// render for 'views' needs only path_name e.g. res.render('index')
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html'); //get html page
+    res.render('index');
 });
 
 app.get('/contact', function (req, res) {
-    res.sendFile(__dirname + '/contact.html'); //get html page
+    res.render('contact');
 });
 
 app.get('/profile/:name', function (req, res) {
