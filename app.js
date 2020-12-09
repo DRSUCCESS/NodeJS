@@ -3,11 +3,13 @@ var fs = require('fs');
 
 var server = http.createServer(function(req, res){
     console.log('request was made:' +req.url);
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8'); //read file
-    myReadStream.pipe(res);//get data from readable string to the client (res obj)
-
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    var myObj = {
+        name: 'Ryu',
+        job: 'Ninja',
+        age: 29
+    };
+    res.end(JSON.stringify(myObj));
 });
 
 
