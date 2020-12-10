@@ -8,6 +8,6 @@ app.use(express.static('./public')) // static files using middleware
 
 todoController(app); // fire controllers
 
-// localhost:3000/assets/styles.css
+
 app.listen(3000); // listen to port
 console.log('You are listening to port 3000');
