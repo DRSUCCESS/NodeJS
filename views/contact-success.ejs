@@ -27,17 +27,11 @@
 <body>
     <%- include ('partials/nav.ejs') %>
     <h1>Contact Us!</h1>
-    <p>Contact the collest of cats on the world wide web</p>
+    <p>Thanks for getting in touch!</p>
+    <p>Y0ou contacted <%= data.who %> in the <%= data.department %> department</p>
+    <p>We will reply to you at <%= data.email %></p>
 
-    <form id="contact-form" method="POST" action="/contact">
-        <label for="who">Who do you want to contact?</label>
-        <input type="text" name="who" value="<%= qs.person %>" />
-        <label for="department">Which department?</label>
-        <input type="text" name="department" value="<%= qs.dept %>" />
-        <label for="email">Your email</label>
-        <input type="email" name="email" />
-        <input type="submit" value="submit" />
-    </form>
+    
 </body>
 
 </html>

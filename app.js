@@ -1,6 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false }) //middleware from body-parser
+
+
 
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('stuff')); //static files
@@ -24,8 +29,15 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
+
+
 app.get('/contact', function (req, res) {
-    res.render('contact', {qs: req.query});
+    res.render('contact', { qs: req.query });
+});
+
+app.post('/contact', urlencodedParser, function (req, res) {
+    console.log(req.body); //post data to the body urlencodedParser
+    res.render('contact-success', { data: req.body });
 });
 
 app.get('/profile/:name', function (req, res) {
